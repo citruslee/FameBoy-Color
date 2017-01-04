@@ -2,17 +2,6 @@ open Units
 open Registers
 open Memory
 
-type OpCode =
-    | Halt = 0x01
-    | IntPrint = 0x02
-    | IntPush = 0x03
-    | Add = 0x04
-
-type MachineState =
-    {
-        IP : int
-        Stack : byte list
-    }
 
 [<EntryPoint>]
 let main argv =
@@ -33,7 +22,7 @@ let main argv =
     for i in 0 .. int ram.memsize - 1 do
         printfn "address=%d value=%d" i ram.memory.[i]
 
-    ram.Write (byte 255) 0
+    ram.Write (byte 255) 02
 
     printfn "\n\n\taddress=%d value=%d" 0 (ram.Read 0)
 
