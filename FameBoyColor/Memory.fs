@@ -14,8 +14,8 @@ type Memory =
         memory = Array.init (int size) (fun i -> byte(i))
     }
 
-    member this.Write (value : byte) (address : int) =
+    member this.Write (value : byte) (address : int) = 
         this.memory.[address] <- value
-
+    
     member this.Read (address : int) =
         this.memory.[address]
