@@ -9,9 +9,9 @@ let main argv =
     let ram = new Memory(1 * kB)
 
 
-    (regs.From8Name A).Value <- uint8 2;
+    (regs.Get8BitRegister A).Value <- uint8 2;
 
-    printfn "register A=%A" (regs.From8Name A).Value
+    printfn "register A=%A" (regs.Get8BitRegister A).Value
 
     for i in 0 .. int ram.memsize - 1 do
         printfn "address=%d value=%d" i ram.memory.[i]

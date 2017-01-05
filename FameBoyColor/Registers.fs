@@ -46,7 +46,7 @@ type ReadWriteDataRegister<'T>(value: 'T) =
 type DataRegister8Bit(value: uint8) =
     inherit ReadWriteDataRegister<uint8>(value)
 
-type FlagRegister(z,n,h,c) =
+type FlagRegister8Bit(z,n,h,c) =
     inherit BaseRegister<uint8>()
 
     //top 4 bits, flags
@@ -96,7 +96,7 @@ type Registers () =
     let c = DataRegister8Bit(0uy) 
     let d = DataRegister8Bit(0uy) 
     let e = DataRegister8Bit(0uy) 
-    let f = FlagRegister(0,0,0,0)
+    let f = FlagRegister8Bit(0,0,0,0)
     let h = DataRegister8Bit(0uy) 
     let l = DataRegister8Bit(0uy) 
 
@@ -125,7 +125,7 @@ type Registers () =
     member val SP = sp
     member val PC = pc
 
-    member this.From8Name (name: Register8BitNames) =
+    member this.Get8BitRegister (name: Register8BitNames) =
         match name with
         | A -> a :> BaseRegister<uint8>
         | B -> b :> BaseRegister<uint8>
@@ -136,7 +136,7 @@ type Registers () =
         | H -> h :> BaseRegister<uint8>
         | L -> l :> BaseRegister<uint8>
 
-    member this.From16Name (name: Register16BitNames) =
+    member this.Get16BitRegister (name: Register16BitNames) =
         match name with
         | AF -> af :> BaseRegister<uint16>
         | BC -> bc :> BaseRegister<uint16>
