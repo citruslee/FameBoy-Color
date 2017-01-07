@@ -11,7 +11,7 @@ type Memory =
     new(size: int<b>) = 
     { 
         memsize = size;
-        memory = Array.init (int size) (fun i -> byte(i))
+        memory = Array.init (int size) byte
     }
 
     member this.Write (value : byte) (address : int) = 

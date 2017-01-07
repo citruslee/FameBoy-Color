@@ -145,3 +145,7 @@ type Registers () =
         | HL -> hl :> BaseRegister<uint16>
         | PC -> pc :> BaseRegister<uint16>
         | SP -> sp :> BaseRegister<uint16> 
+
+    member this.Print () = 
+        printfn "registers 8 bit\n\tA=%A B=%A C=%A D=%A E=%A F=%A H=%A L=%A\n" this.A.Value this.B.Value this.C.Value this.D.Value this.E.Value this.F.Value this.H.Value this.L.Value
+        printfn "registers 16 bit\n\tAF=%A BC=%A DE=%A HL=%A SP=%A PC=%A\n\n" this.AF.Value this.BC.Value this.DE.Value this.HL.Value this.SP.Value this.PC.Value
