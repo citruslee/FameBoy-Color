@@ -75,6 +75,7 @@ type StackPointerRegister (init) =
 //PC
 type ProgramCounterRegister (value) =
     inherit ReadWriteDataRegister<uint16>(value)
+
     member this.Advance (offset: int) = 
         this.Value <- this.Value + (uint16 offset)
 
