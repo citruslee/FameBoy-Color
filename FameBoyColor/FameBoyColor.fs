@@ -24,7 +24,7 @@ let main argv =
     //ram.Write 255uy 02
 
     //printfn "\n\n\taddress=%d value=%d" 0 (ram.Read 0)
-
+    cpu.Init (argv.[0])
     cpu.Update() |> ignore
 
     System.Console.ReadKey() |> ignore

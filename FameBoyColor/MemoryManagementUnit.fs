@@ -1,9 +1,13 @@
 ﻿module MemoryManagementUnit
 
+open System.IO
+open Cartridge
+
 type MemoryManagementUnit () = 
 
-    //read 8 bit value from address
-    member this.ReadByte (address) = 
+    
+        //read 8 bit value from address
+    member this.ReadByte (address) : byte= 
         0uy
 
     //read 16 bit value from address
@@ -16,4 +20,8 @@ type MemoryManagementUnit () =
 
     //write 16 bit value to address
     member this.WriteWord (address, value)= 
+        ()
+    member this.LoadCartridge (cartridgePath) =
+        let cartridge = new Cartridge()
+        cartridge.LoadCartridge (cartridgePath)
         ()
